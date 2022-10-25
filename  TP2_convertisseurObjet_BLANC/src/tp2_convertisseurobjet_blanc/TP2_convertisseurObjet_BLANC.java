@@ -17,10 +17,10 @@ public class TP2_convertisseurObjet_BLANC {
         convertisseur temp1 = new convertisseur();
         convertisseur temp2 = new convertisseur();
         double temp = 1.0;
-        convertisseur.FarenheitVersCelcius(temp);
-        convertisseur.CelciusVersKelvin(temp);
+        temp1.FarenheitVersCelcius(temp);
+        temp2.CelciusVersKelvin(temp);
         
-        System.out.println()
+        System.out.println();
     }
     
 }
