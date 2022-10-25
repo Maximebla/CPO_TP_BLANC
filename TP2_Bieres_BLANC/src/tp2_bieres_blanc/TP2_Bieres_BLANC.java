@@ -33,6 +33,8 @@ public class TP2_Bieres_BLANC {
         BouteilleBiere QuatreBiere = new BouteilleBiere("Jupiler", 7.0,"Piva") ;
         QuatreBiere.ouverte = false;
         QuatreBiere.lireEtiquette();
+        
+        System.out.println(uneBiere) ;
     }
     
 }
