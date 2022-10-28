@@ -17,6 +17,7 @@ public class TP2_Bieres_BLANC {
         BouteilleBiere uneBiere = new BouteilleBiere("Cuvée des trolls",7.0,"Dubuisson") ;
         uneBiere.ouverte = false;
         uneBiere.lireEtiquette();
+        // affiche une étiquette  avec les données saisit a la ligne 17 (pareil pour les lignes d'après
         
         BouteilleBiere autreBiere = new BouteilleBiere("Leffe", 6.6,"Abbaye de Leffe") ;
         autreBiere.ouverte = false;
@@ -35,6 +36,7 @@ public class TP2_Bieres_BLANC {
         QuatreBiere.lireEtiquette();
         
         System.out.println(uneBiere) ;
+        // affiche les données que l'on a données et qui sont passé par le toString
     }
     
 }

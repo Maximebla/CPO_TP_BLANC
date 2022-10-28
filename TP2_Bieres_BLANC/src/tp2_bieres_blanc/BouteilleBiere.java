@@ -14,19 +14,23 @@ nom = unNom;
 degreAlcool = unDegre;
 brasserie = uneBrasserie;
 ouverte = false;
+// prend les valeurs que l'on a mis dans le main String
 }
     String nom;
     double degreAlcool;
     String brasserie;
     boolean ouverte;
+    
     public void lireEtiquette() {
         System.out.println("Bouteille de " + nom +" (" + degreAlcool +" degres) \nBrasserie : " + brasserie ) ;
+    // Prépare une étiquette type que l'on executera dans le main String si l'on le souhaite
 }
 public void Décapsuler() {
     if (ouverte == false){
         ouverte = true;
     }else{
         System.out.print("erreur : biere déjà ouverte");
+    // regarde si la bière a été décapsuler si pas encore fais alors on décapsule sinon on affiche qu'elle est deja ouverte
     }
 }
 public String toString() {
