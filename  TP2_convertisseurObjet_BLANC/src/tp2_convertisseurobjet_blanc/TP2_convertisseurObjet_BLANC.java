@@ -37,9 +37,11 @@ public class TP2_convertisseurObjet_BLANC {
         System.out.println("4- CelciusVersFarenheit ");
         System.out.println("5- KelvinVersFarenheit ");
         System.out.println("6- FarenheitVersKelvin ");
+        // demande a l'utilisateur de choisir sa conversion qu'il soit faire 
         
         Scanner sc=new Scanner(System.in);
         int choix =sc.nextInt();
+        // scan la réponse de l'utilisateur et la met dans la variable Choix
         
         if (choix == 1){
             temp1.CelciusVersKelvin(temp);
@@ -64,6 +66,9 @@ public class TP2_convertisseurObjet_BLANC {
          if (choix == 6){
             temp6.FarenheitVersKelvin(temp);
             System.out.println( temp6);
+            
+        // regarde quelle choix l'utilisateur a fait et va faire les convertions
+        // Elle va en même temps comptés le nombre de converstions puis renvoyé se nombre
         }
         
     }

@@ -15,12 +15,14 @@ public class convertisseur {
         nbConversions = 0 ;
     }
     int nbConversions;
+    // intisialisation variale competeur conversion
     
     public double CelciusVersKelvin(double celcius){
         
         double Kelvin = celcius + 273.15;
         nbConversions=nbConversions+1;
         return Kelvin;
+        // modifie la température de Kelvin en Celcius
         
     }
     
@@ -30,6 +32,7 @@ public class convertisseur {
         double celcius = kelvin - 273.15;
         nbConversions=nbConversions+1;
         return celcius;
+        // modifie la température de Kelvin en Celcius
         
     }
     
@@ -39,6 +42,7 @@ public class convertisseur {
         double celcius = (farenheit - 32) / 1.8;
         nbConversions=nbConversions+1;
         return celcius;
+        // modifie la température de Celcius en Kelvin
 
     }
 
@@ -48,6 +52,7 @@ public class convertisseur {
         double farenheit = (celcius * 1.8) + 32;
         nbConversions=nbConversions+1;
         return farenheit;
+        // modifie la température de Celcius en farenheit 
         
     }
     
@@ -57,6 +62,7 @@ public class convertisseur {
         double farenheit = CelciusVersFarenheit(KelvinVersCelcius(kelvin));
         nbConversions=nbConversions+1;
         return farenheit;
+        // modifie la température Kelvin en farenheit en passant par Celcius grace au méthode faite précédament
         
     }
     
@@ -66,11 +72,13 @@ public class convertisseur {
         double kelvin = CelciusVersKelvin(FarenheitVersCelcius(farenheit));
         nbConversions=nbConversions+1;
         return kelvin;
+        // modifie la température farenheit en Kelvin en passant par Celcius grace au méthode faite précédament
         
     }
     
     public String toString () {
         return "nb de conversions "+ nbConversions;
+        // affiche le nombre de convertion faite pour arriver a la bonne mesure de température voulu
     }
     
 }
