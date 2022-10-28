@@ -34,6 +34,22 @@ public class TP2_manip_BLANC {
         // une référence objet qui annonce référencer un type d’objet peut-elle en référencer un autre qui n’a aucun rapport ?
         // Non
         
+        //Moussaka assiette1O = new Moussaka(100) ;
+        //Moussaka assiette11 = new Moussaka(200) ;
+        //Moussaka assiette12 = new Moussaka(300) ;
+        //Moussaka assiette13 = new Moussaka(400) ;
+        //Moussaka assiette14 = new Moussaka(500) ;
+        //Moussaka assiette15 = new Moussaka(600) ;
+        //Moussaka assiette16 = new Moussaka(700) ;
+        //Moussaka assiette17 = new Moussaka(800) ;
+        //Moussaka assiette18 = new Moussaka(900) ;
+        //Moussaka assiette19 = new Moussaka(1000) ;
+        
+        Moussaka [] tabEntiers = new Moussaka[10]; 
+
+        for (int i=0; i < 10; i++) {
+            tabEntiers [i] = new Moussaka(100+i) ;
+        }
     }
         
 }
