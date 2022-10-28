@@ -4,6 +4,8 @@
  */
 package tp2_relation_1_blanc;
 
+import java.util.Scanner;
+
 /**
  *
  * @author User
@@ -23,6 +25,14 @@ public class TP2_relation_1_BLANC {
         Personne bob = new Personne("Bobby", "Sixkiller");
         Personne reno = new Personne("Reno", "Raines");
         
+        System.out.println("combien aez-vous de voitures");
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        Voiture [] liste_voitures = new Voiture[]; 
+        
+        for (int i=0; i < 3; i++) {
+            tabEntiers [i] = new Voiture(i) ;
+        }
         System.out.println("liste des voitures disponibles "+ uneClio +"\n" + uneAutreClio + "\n" + une2008 + "\n" + uneMicra ) ;
     }
     
