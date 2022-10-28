@@ -23,6 +23,17 @@ public class TP2_manip_BLANC {
         // 2 assiettes crées et l'assiette3 vaut la même tartiflette que l'assiette2
         System.out.println("nb de calories de Assiette 2 : " +assiette2.nbCalories) ;
         System.out.println("nb de calories de Assiette 3 : " +assiette3.nbCalories) ;
+        
+        assiette2=assiette1;
+        assiette1=assiette3;
+        
+        
+        //Moussaka assiette666 = assiette1 ;
+        //Moussaka assiette667 = new Tartiflette() ;
+        // Aucune n'est correct
+        // une référence objet qui annonce référencer un type d’objet peut-elle en référencer un autre qui n’a aucun rapport ?
+        // Non
+        
     }
-    
+        
 }
