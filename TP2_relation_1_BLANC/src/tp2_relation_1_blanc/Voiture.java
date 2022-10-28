@@ -10,4 +10,16 @@ package tp2_relation_1_blanc;
  */
 public class Voiture {
     
+    public Voiture(String modele,String Marque,int PuissanceCV) {
+    modele1=modele;
+    Marque1=Marque;
+    PuissanceCV1=PuissanceCV;
+    }
+    String modele1;
+    String Marque1;
+    int PuissanceCV1;
+    @Override
+    public String toString () {
+        return ("Voiture de modele " + modele1 + " de marque " + Marque1 + " et de Puissance en CV de " + PuissanceCV1);
+    }
 }
