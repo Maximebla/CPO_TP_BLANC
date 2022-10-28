@@ -13,5 +13,5 @@ public class Moussaka {
     public Moussaka(int Calories){
         nbCalories=Calories;
     }
-        
+    // initialise le nombre de calories avec la valeur rentré dans la main String    
 }

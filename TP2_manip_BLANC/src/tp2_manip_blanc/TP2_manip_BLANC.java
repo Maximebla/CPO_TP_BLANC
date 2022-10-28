@@ -17,15 +17,19 @@ public class TP2_manip_BLANC {
         
         Tartiflette assiette1 = new Tartiflette(500) ;
         Tartiflette assiette2 = new Tartiflette(600) ;
+        // donne le nombre de calories pour la première assietes en passant par la classe tartiflettes
         
         Tartiflette assiette3 = assiette2 ;
+        //  donne le même nombre de calories a l'assiette 3 que l'assiette 2
         
         // 2 assiettes crées et l'assiette3 vaut la même tartiflette que l'assiette2
         System.out.println("nb de calories de Assiette 2 : " +assiette2.nbCalories) ;
         System.out.println("nb de calories de Assiette 3 : " +assiette3.nbCalories) ;
+        // affiche le nombre de calories de chaque assiettes
         
         assiette2=assiette1;
         assiette1=assiette3;
+        // echange les calories de l'assiette 2 et de l'assiette 1
         
         
         //Moussaka assiette666 = assiette1 ;
@@ -46,10 +50,12 @@ public class TP2_manip_BLANC {
         //Moussaka assiette19 = new Moussaka(1000) ;
         
         Moussaka [] tabEntiers = new Moussaka[10]; 
-
+        // creer un tableau de 10 qui est d'une classe moussaka
+        
         for (int i=0; i < 10; i++) {
             tabEntiers [i] = new Moussaka(100+i) ;
         }
+        // met des calories dans le tableau en passant par la class moussaka
     }
         
 }
