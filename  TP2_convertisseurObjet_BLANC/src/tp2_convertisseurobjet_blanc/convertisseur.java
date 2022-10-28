@@ -70,7 +70,7 @@ public class convertisseur {
     }
     
     public String toString () {
-        return "nb de conversions"+ nbConversions;
+        return "nb de conversions "+ nbConversions;
     }
     
 }
