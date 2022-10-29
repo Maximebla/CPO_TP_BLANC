@@ -10,19 +10,19 @@ package tp2_relation_1_blanc;
  */
 public class Voiture {
     
-    public Voiture(String modele,String Marque,int PuissanceCV,Personne Propriétaire) {
+    public Voiture(String modele,String Marque,int PuissanceCV) {
     modele1=modele;
     Marque1=Marque;
     PuissanceCV1=PuissanceCV;
-    Personne1=Propriétaire;
+    Proprietaire=null;
     }
     String modele1;
     String Marque1;
     int PuissanceCV1;
-    Personne Personne1;
+    Personne Proprietaire ;
     @Override
     public String toString () {
-        return ("Voiture de modele " + modele1 + " de marque " + Marque1 + " et de Puissance en CV de " + PuissanceCV1 + " et son propriètaire est " + Personne1);
+        return ("Voiture de modele " + modele1 + " de marque " + Marque1 + " et de Puissance en CV de " + PuissanceCV1);
     }
     // Créer un type d'affichage qui donne le modle, la marque, la puissance et le propriétaire
 }
