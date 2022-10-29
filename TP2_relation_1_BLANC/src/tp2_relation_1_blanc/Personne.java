@@ -9,16 +9,16 @@ package tp2_relation_1_blanc;
  * @author User
  */
 public class Personne {
-    public Personne(String nom,String prenom,int nbvoitures, Voiture [] liste_voitures) {
+    public Personne(String nom,String prenom) {
     nom1=nom;
     prenom1=prenom;
-    nbvoitures1 = nbvoitures;
-    liste_voitures1 = liste_voitures;
+    nbVoitures=0;
+    liste_voitures = new Voiture [3];
     }
     String nom1;
     String prenom1;
-    int nbvoitures1;
-    Voiture[] liste_voitures1;
+    int nbVoitures ;
+    Voiture [] liste_voitures ;
     
     @Override
     public String toString () {
