@@ -25,7 +25,7 @@ public class TP2_relation_1_BLANC {
         Personne bob = new Personne("Bobby", "Sixkiller");
         Personne reno = new Personne("Reno", "Raines");
         
-        System.out.println("liste des voitures disponibles "+ uneClio +"\n" + uneAutreClio + "\n" + une2008 + "\n" + uneMicra ) ;
+        System.out.println("liste des voitures disponibles \n"+ uneClio +"\n" + uneAutreClio + "\n" + une2008 + "\n" + uneMicra ) ;
         
         bob.liste_voitures[0] = uneClio ;
         bob.liste_voitures[1] = uneAutreClio ;
@@ -43,8 +43,12 @@ public class TP2_relation_1_BLANC {
         une2008.Proprietaire = reno ;
         uneMicra.Proprietaire = reno ;
         
-        System.out.println("la premiere voiture de Bob est " +reno.liste_voitures[0] ) ;
-        System.out.println("la deuxième voiture de Bob est " +reno.liste_voitures[1] ) ;
+        System.out.println("la premiere voiture de reno est " +reno.liste_voitures[0] ) ;
+        System.out.println("la deuxième voiture de reno est " +reno.liste_voitures[1] ) ;
+        
+        Voiture uneFiat = new Voiture ("Panda", "Fiat", 4);
+        //bob.ajouter_voiture(uneFiat);
+        System.out.println(bob.ajouter_voiture(uneFiat));
     }
     
 }
