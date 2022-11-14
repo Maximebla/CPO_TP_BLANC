@@ -14,7 +14,10 @@ public class TP3_BLANC_MAXIME {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Arme m = new Arme ("arme standard", 4);
+        int UnnvAtta = m.getNvAtta();
+        System.out.println("l'arme s'appelle " + m.nom + " et a une attaque de " + UnnvAtta + ".");
+        
     }
     
 }
