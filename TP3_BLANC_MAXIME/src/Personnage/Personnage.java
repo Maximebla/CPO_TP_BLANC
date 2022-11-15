@@ -13,12 +13,28 @@ import java.util.ArrayList;
 public class Personnage {
     String nom;
     protected int nvie;
-    
     ArrayList<Arme> tabArme1 = new ArrayList<Arme>(5);
+    Arme arme_en_main=null;
     
     public void ajouterarme (Arme arme){
         if(tabArme1.size()<5){
             tabArme1.add(arme);
+        }
+    }
+    
+    public Arme getArme_en_main(){
+        return arme_en_main;
+    }
+    
+    public void methodearme(Arme arme){
+        for(int i=0; i<5;i++){
+            if(tabArme1.get(i)==arme){
+                System.out.println("l'arme est dans votre mains");
+                arme_en_main = tabArme1.get(i);
+                break;
+            }else{
+                System.out.println("vous n'avez pas cette arme");
+            }
         }
     }
     
@@ -47,6 +63,6 @@ public class Personnage {
 
     @Override
     public String toString() {
-        return "le personnage s'appelle " + nom + "et a un niveau de vie de " + nvie + "."; 
+        return "le personnage s'appelle " + nom + "et a un niveau de vie de " + nvie + "le personnage posséde une arme"+ arme_en_main+"."; 
     }    
 }
