@@ -21,6 +21,10 @@ public class Magicien extends Personnage{
         }
     }
 
+    public void setConfirme(boolean confirme) {
+        this.confirme = confirme;
+    }
+
     @Override
     public String toString() {
         return "Magicien de nom de " +nom+ "qui a un niveau de vie de "+ nvie + " est de un magicien de niveau " + a ;

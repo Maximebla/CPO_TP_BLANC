@@ -45,6 +45,20 @@ public class TP3_BLANC_MAXIME {
             System.out.println(" Voici les caracterisitques de l'arme: "+tabArme.get(i));
         }
         
+        Magicien M1 = new Magicien (true,"Gandalf",65);
+        System.out.println(M1);
+        Magicien M2 = new Magicien ( false,"Garcimore",41);
+        System.out.println(M2);
+        Guerrier G1 = new Guerrier(false,"Conan", 78);
+        System.out.println(G1);
+        Guerrier G2 = new Guerrier( true,"Lannister", 45);
+        System.out.println(G2);
         
+        ArrayList<Personnage> tabpersonnage = new ArrayList<Personnage>();
+        
+        tabpersonnage.add(M1);
+        tabpersonnage.add(M2);
+        tabpersonnage.add(G1);
+        tabpersonnage.add(G2);
     }  
 }

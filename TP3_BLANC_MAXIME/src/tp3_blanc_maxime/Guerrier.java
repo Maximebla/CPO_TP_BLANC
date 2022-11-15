@@ -22,6 +22,11 @@ public class Guerrier extends Personnage{
         this.cheval=cheval;
     }
 
+    public void setCheval(boolean cheval) {
+        this.cheval = cheval;
+    }
+
+    
     @Override
     public String toString() {
         return "Guerrier du nom de " +nom+ " a un niveau de vie de " + nvie + ". est-il a cheval: " + b + '.';
