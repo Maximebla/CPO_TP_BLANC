@@ -4,6 +4,8 @@
  */
 package Personnage;
 
+import Arme.Arme;
+import java.util.ArrayList;
 /**
  *
  * @author User
@@ -11,6 +13,14 @@ package Personnage;
 public class Personnage {
     String nom;
     protected int nvie;
+    
+    ArrayList<Arme> tabArme1 = new ArrayList<Arme>(5);
+    
+    public void ajouterarme (Arme arme){
+        if(tabArme1.size()<5){
+            tabArme1.add(arme);
+        }
+    }
     
     public Personnage(String Unnom,int Unnvie) {
         nom=Unnom;
