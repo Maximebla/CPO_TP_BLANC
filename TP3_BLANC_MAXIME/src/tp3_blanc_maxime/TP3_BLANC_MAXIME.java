@@ -53,8 +53,7 @@ public class TP3_BLANC_MAXIME {
         // affiche les caratéristiques en allant cherché les données objets dans le tableau
         // pareil pour le magicien et le guerrier
         
-        Magicien h;
-        
+                
         Magicien M1 = new Magicien (true,"Gandalf",65);
         System.out.println(M1);
         Magicien M2 = new Magicien ( false,"Garcimore",41);
@@ -75,5 +74,15 @@ public class TP3_BLANC_MAXIME {
         for (int i=0; i<c; i++){
             System.out.println(" Voici les caracterisitques du personnage: "+tabpersonnage.get(i));
         }
+        
+        Magicien M3 = new Magicien (true,"Agazul",55);
+        Guerrier G3 = new Guerrier(true,"Dartanian", 18);
+        Batton B3 = new Batton("cedre", 6, 4);
+        Batton B4 = new Batton("olivier", 2, 2);
+        Batton B5 = new Batton("platane", 7, 10);
+        Epée E3 = new Epée ( "Bar",5,10);
+        Epée E4 = new Epée ( "Goule",6,8);
+        Epée E5 = new Epée ( "Legrand",3,7);
+        
     }  
 }
