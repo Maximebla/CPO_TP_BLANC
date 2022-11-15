@@ -4,6 +4,9 @@
  */
 package tp3_blanc_maxime;
 
+import Personnage.Personnage;
+import Personnage.Guerrier;
+import Personnage.Magicien;
 import Arme.Epée;
 import Arme.Batton;
 import Arme.Arme;
@@ -28,22 +31,27 @@ public class TP3_BLANC_MAXIME {
         System.out.println(E1);
         Epée E2 = new Epée ( "Durandal",4,7);
         System.out.println(E2);
-        Batton B1 = new Batton("Chê ne", 4, 5);
+        Batton B1 = new Batton("Chêne", 4, 5);
         System.out.println(B1);
         Batton B2 = new Batton( "Charme", 5, 6);
         System.out.println(B2);
+        // on créer un nouvelle objet pour la classe épée ou batton  
         
         ArrayList<Arme> tabArme = new ArrayList<Arme>();
+        //création d'un tableau dynamique
         
         tabArme.add(E1);
         tabArme.add(E2);
         tabArme.add(B1);
         tabArme.add(B2);
+        // ajout des objets dans le tableau dynamique
         
         int a= tabArme.size();
         for (int i=0; i<a; i++){
             System.out.println(" Voici les caracterisitques de l'arme: "+tabArme.get(i));
         }
+        // affiche les caratéristiques en allant cherché les données objets dans le tableau
+        // pareil pour le magicien et le guerrier
         
         Magicien M1 = new Magicien (true,"Gandalf",65);
         System.out.println(M1);
@@ -60,5 +68,10 @@ public class TP3_BLANC_MAXIME {
         tabpersonnage.add(M2);
         tabpersonnage.add(G1);
         tabpersonnage.add(G2);
+        
+        int c = tabpersonnage.size();
+        for (int i=0; i<c; i++){
+            System.out.println(" Voici les caracterisitques du personnage: "+tabpersonnage.get(i));
+        }
     }  
 }

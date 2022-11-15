@@ -11,7 +11,7 @@ package Arme;
 public class Arme {
     String nom;
     private int nvAtta;
-    
+        
     public Arme(String Unnom,int UnnvAtta) {
         nom=Unnom;
         
