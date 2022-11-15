@@ -20,6 +20,7 @@ public class Epée extends Arme{
         }else{
             fin=100;
         }
+        // prend les variables définie dans arme et rajoute finesse de l'épé entre les conditions
     }
     public int getFin() {
             return fin;
@@ -35,6 +36,5 @@ public class Epée extends Arme{
     public String toString() {
         return "Epée nom = " +nom+", Attaque= "+this.getNvAtta()+", finnesse= " +fin ;
     }
-    
-    
+    // affiche le nom de l'épée, son niveau d'attaque et sa finesse    
 }

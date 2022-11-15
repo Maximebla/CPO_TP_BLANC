@@ -15,12 +15,14 @@ public class Personnage {
     protected int nvie;
     ArrayList<Arme> tabArme1 = new ArrayList<Arme>(5);
     Arme arme_en_main=null;
+    // créer un tableau dynamique 
     
     public void ajouterarme (Arme arme){
         if(tabArme1.size()<5){
             tabArme1.add(arme);
         }
     }
+    //on ajoute s'il reste de la place l'arme dans son inventaire
     
     public Arme getArme_en_main(){
         return arme_en_main;
@@ -35,6 +37,7 @@ public class Personnage {
             }else{
                 System.out.println("vous n'avez pas cette arme");
             }
+            // on regard s'il l'arme existe si oui on la met dans la main sinon on garde la précédente
         }
     }
     
@@ -48,7 +51,7 @@ public class Personnage {
         }if (Unnvie<0){
             nvie = 1;
         }
-        
+        // on définie les caractéristiques du personnage
     }
 
     public int getNvie() {
@@ -61,8 +64,10 @@ public class Personnage {
         }
     }
 
+    
     @Override
     public String toString() {
         return "le personnage s'appelle " + nom + "et a un niveau de vie de " + nvie + "le personnage posséde une arme"+ arme_en_main+"."; 
     }    
+    // affiche les caratéristiques du personnages
 }

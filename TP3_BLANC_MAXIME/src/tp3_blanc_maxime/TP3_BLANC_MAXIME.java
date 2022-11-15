@@ -1,12 +1,12 @@
+package tp3_blanc_maxime;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package tp3_blanc_maxime;
 
-import Personnage.Personnage;
-import Personnage.Guerrier;
-import Personnage.Magicien;
+
+import Personnage.*;
 import Arme.Epée;
 import Arme.Batton;
 import Arme.Arme;
@@ -52,6 +52,8 @@ public class TP3_BLANC_MAXIME {
         }
         // affiche les caratéristiques en allant cherché les données objets dans le tableau
         // pareil pour le magicien et le guerrier
+        
+        Magicien h;
         
         Magicien M1 = new Magicien (true,"Gandalf",65);
         System.out.println(M1);

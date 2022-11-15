@@ -19,6 +19,7 @@ public class Batton extends Arme {
         }else{
             age=100;
         }
+        // prend l'age s'il est dans la condition autrement prend la valeur fixe
     }
     
     public int getFin() {
@@ -34,5 +35,6 @@ public class Batton extends Arme {
     public String toString() {
         return "Batton nom = " +nom+" Attaque= "+this.getNvAtta()+" finnesse= " +age ;
     }
+    // affiche le bois du batton, son attaque et son age
 }
 

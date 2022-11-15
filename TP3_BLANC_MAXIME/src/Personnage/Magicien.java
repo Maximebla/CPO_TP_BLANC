@@ -4,6 +4,8 @@
  */
 package Personnage;
 
+
+
 /**
  *
  * @author User
@@ -19,6 +21,7 @@ public class Magicien extends Personnage{
         }else{
             a= "debutant";
         }
+        // on reprend les variables du personnage et on regard si le personnage est débutant ou confirmé
     }
 
     public void setConfirme(boolean confirme) {
@@ -29,7 +32,5 @@ public class Magicien extends Personnage{
     public String toString() {
         return "Magicien de nom de " +nom+ "qui a un niveau de vie de "+ nvie + " est de un magicien de niveau " + a ;
     }
-    
-    
-    
+    // on affiche les caractéristiques du magicien    
 }

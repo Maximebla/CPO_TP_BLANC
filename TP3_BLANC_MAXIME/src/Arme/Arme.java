@@ -22,7 +22,7 @@ public class Arme {
         }if (UnnvAtta<0){
             nvAtta = 1;
         }
-        
+        // le niveau d'attaque prend la valeur donné si entre les conditions ou alors elle est imposé
     }
 
     public int getNvAtta() {
@@ -31,12 +31,13 @@ public class Arme {
 
     public void setNvAtta(int nvAtta) {
         if ( nvAtta >0 &&  nvAtta <100){
-        this.nvAtta = nvAtta;
+        this.nvAtta = nvAtta; // prend le niveau d'attaque rentré par l'utilisateur si entre les conditions
         }
     }
 
     @Override
     public String toString() {
         return "l'arme s'appelle " + nom + "et a une attaque de " + nvAtta + "."; 
+        // renvoie 
     }    
 }
