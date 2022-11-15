@@ -4,6 +4,9 @@
  */
 package tp3_blanc_maxime;
 
+import Arme.Epée;
+import Arme.Batton;
+import Arme.Arme;
 import java.util.ArrayList;
 
 /**
