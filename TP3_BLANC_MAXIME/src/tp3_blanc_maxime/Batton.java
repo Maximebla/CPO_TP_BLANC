@@ -8,31 +8,29 @@ package tp3_blanc_maxime;
  *
  * @author User
  */
-public class Epée extends Arme{
-    private int fin;
-
-    public Epée (String nom,int nvAtta, int finesse) {
+public class Batton extends Arme {
+    private int age;
+    public Batton (String nom,int nvAtta, int a) {
         super(nom,nvAtta);
-        if (finesse <100 ){
-            fin=finesse;
+        if (a <100 ){
+            age=a;
         }else{
-            fin=100;
+            age=100;
         }
     }
+    
     public int getFin() {
-            return fin;
-        }
-    public void setFin(int fin) {
-        if (fin <100 ){
-            this.fin = fin;
+        return age;
+    }
+    public void setFin(int age) {
+        if (age <100 ){
+            this.age = age;
         }
     }
-
     
     @Override
     public String toString() {
-        return "Epée nom = " +nom+", Attaque= "+this.getNvAtta()+", finnesse= " +fin ;
+        return "Batton nom = " +nom+" Attaque= "+this.getNvAtta()+" finnesse= " +age ;
     }
-    
-    
 }
+

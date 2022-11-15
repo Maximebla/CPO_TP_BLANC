@@ -30,10 +30,12 @@ public class Arme {
     }
 
     public void setNvAtta(int nvAtta) {
+        if ( nvAtta >0 &&  nvAtta <100){
         this.nvAtta = nvAtta;
+        }
     }
 
-    
+    @Override
     public String toString() {
         return "l'arme s'appelle " + nom + "et a une attaque de " + nvAtta + "."; 
     }    
