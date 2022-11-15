@@ -45,5 +45,6 @@ public class TP3_BLANC_MAXIME {
             System.out.println(" Voici les caracterisitques de l'arme: "+tabArme.get(i));
         }
         
+        
     }  
 }

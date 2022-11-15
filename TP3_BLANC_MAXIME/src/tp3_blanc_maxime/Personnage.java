@@ -10,7 +10,7 @@ package tp3_blanc_maxime;
  */
 public class Personnage {
     String nom;
-    private int nvie;
+    protected int nvie;
     
     public Personnage(String Unnom,int Unnvie) {
         nom=Unnom;
