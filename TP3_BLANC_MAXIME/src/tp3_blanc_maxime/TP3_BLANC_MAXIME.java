@@ -84,5 +84,17 @@ public class TP3_BLANC_MAXIME {
         Epée E4 = new Epée ( "Goule",6,8);
         Epée E5 = new Epée ( "Legrand",3,7);
         
+        G3.ajouterarme(E3);
+        G3.ajouterarme(E4);
+        G3.ajouterarme(B5);
+        G3.methodearme(E3);
+        // on met dans l'inventaire du guerrier ces trois armes et La première epe dans sa main
+        
+        // pareil pour le magicien
+        M3.ajouterarme(E5);
+        M3.ajouterarme(B3);
+        M3.ajouterarme(B4);
+        M3.methodearme(B3);
+        
     }  
 }
