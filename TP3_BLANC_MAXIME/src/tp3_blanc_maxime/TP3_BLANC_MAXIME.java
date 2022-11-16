@@ -89,12 +89,25 @@ public class TP3_BLANC_MAXIME {
         G3.ajouterarme(B5);
         G3.methodearme(E3);
         // on met dans l'inventaire du guerrier ces trois armes et La première epe dans sa main
+        tabpersonnage.add(M3);
+        tabpersonnage.add(G3);
         
         // pareil pour le magicien
         M3.ajouterarme(E5);
         M3.ajouterarme(B3);
         M3.ajouterarme(B4);
         M3.methodearme(B3);
+        
+        System.out.println(" Voici les caracterisitques du personnage: "+tabpersonnage.get(0));
+        M1.armepref();
+        System.out.println(" Voici les caracterisitques du personnage: "+tabpersonnage.get(1));
+        M2.armepref();
+        System.out.println(" Voici les caracterisitques du personnage: "+tabpersonnage.get(2));
+        System.out.println(" Voici les caracterisitques du personnage: "+tabpersonnage.get(3));
+        System.out.println(" Voici les caracterisitques du personnage: "+tabpersonnage.get(4));
+        M3.armepref();
+        System.out.println(" Voici les caracterisitques du personnage: "+tabpersonnage.get(5));
+        // affiche toutes les caratérisitques en mettant pour les magiciens leur amres preferer
         
     }  
 }
