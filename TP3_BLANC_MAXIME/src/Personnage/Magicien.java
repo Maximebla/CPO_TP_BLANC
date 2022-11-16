@@ -4,6 +4,8 @@
  */
 package Personnage;
 
+import Arme.Batton;
+
 
 
 /**
@@ -26,6 +28,17 @@ public class Magicien extends Personnage{
 
     public void setConfirme(boolean confirme) {
         this.confirme = confirme;
+    }
+    
+    public void armepref (){
+        int cpt=0;
+        for (int i=0; i<tabArme1.size(); i++){
+            if (tabArme1.get(i) instanceof Batton){
+                System.out.println(tabArme1.get(i)+ " est une arme preferer");
+                cpt=cpt+1;
+            }
+        }
+    System.out.println("le magicien a " +cpt+ " arme preferer");
     }
 
     @Override
