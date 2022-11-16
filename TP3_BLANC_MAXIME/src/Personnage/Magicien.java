@@ -40,6 +40,7 @@ public class Magicien extends Personnage{
         }
     System.out.println("le magicien a " +cpt+ " arme preferer");
     }
+    // regard si c'est l'arme de prédilection du magiceien et les comptes pour savoir combien il y en a.
 
     @Override
     public String toString() {
