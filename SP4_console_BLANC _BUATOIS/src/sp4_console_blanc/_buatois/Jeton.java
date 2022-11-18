@@ -14,11 +14,11 @@ public class Jeton {
     public void Jeton (String couleur){
         Couleur=couleur;
     }
-    
-    public String lireCouleur(){
+
+    public String lireCouleur() {
         return Couleur;
     }
-
+    
     @Override
     public String toString() {
         String Couleur1;
