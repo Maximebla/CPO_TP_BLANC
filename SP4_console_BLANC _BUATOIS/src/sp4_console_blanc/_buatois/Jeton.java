@@ -11,14 +11,26 @@ package sp4_console_blanc._buatois;
 public class Jeton {
     private String Couleur;
     
+    /** donne la couleur a l'objet Jeton avec la variable couleur
+     *
+     * @param couleur
+     */
     public void Jeton (String couleur){
         Couleur=couleur;
     }
 
+    /**regarde la couleur et la renvoie
+     *
+     * @return
+     */
     public String lireCouleur() {
         return Couleur;
     }
     
+    /** renvoie J ou R pour connaitre la couleur du jeton
+     *
+     * @return
+     */
     @Override
     public String toString() {
         String Couleur1;

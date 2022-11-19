@@ -39,36 +39,55 @@ public class PlateauDeJeu {
         }
     return r;  
     }
+    //refaire je pense qu'il faut savoir si toute la grille est pleine et non pas une ligne
     
-    public viderGrille(Joueur ;Joueur){
-        
+    public void viderGrille(Joueur J1,Joueur J2){
+        for (int l=0; l<6; l++){
+            for (int c=0; c<7; c++){
+                //if (grille[l][c].presenceJeton()== true){
+                    //if (lireCouleurDuJeton(int l, int c) == "R"){
+                        //J1 =J1+1;
+                    //}else{
+                        //J2 =J2+1;
+                    //}
+                //}
+            }
+        }
     }
     
-    public afficherGrilleSurConsole(){
+    //public afficherGrilleSurConsole(){
         
+    //}
+    
+    public boolean presenceJeton(int x, int y){
+        if(grille[x][y].presenceJeton() == true ){
+            return true;
+        }else{
+            return false;
+        }
     }
     
-    public presenceJeton(int x, int y){
-        
+    public String lireCouleurDuJeton(int x,int y){
+        if(grille[x][y].lireCouleurDuJeton() == "vide" ){
+            return "rien";
+        }else{
+            if(grille[x][y].lireCouleurDuJeton() == "R" ){
+                return "R";
+            }else{
+                return "J" ;
+            }
+        }
     }
     
-    public ireCouleurDuJeton(int x,int y){
-        
-    }
+    //public boolean etreGagnantePourCouleur(String g){
+    //    if(ligneGagnantePourCouleur(g)==true || colonneGagnantePourCouleur(g) == true || diagonaleMontanteGagnantePourCouleur(g)==true || diagonaleDesencanteGagnantePourCouleur(g) == true)
+    //}
     
-    public etreGagnantePourCouleur(String){
-        
-    }
+    // faire les methodes pour les conditions de victoire
+    //ligneGagnantePourCouleur(String g)
+    //colonneGagnantePourCouleur(String g)
+    //diagonaleMontanteGagnantePourCouleur(String g)
+    //diagonaleDesencanteGagnantePourCouleur(String g)
     
-    public tasserLigne(int){
-        
-    }
     
-    public colonneRemplie(){
-        
-    }
-    
-    public placerTrouNoir(){
-        
-    }
 }

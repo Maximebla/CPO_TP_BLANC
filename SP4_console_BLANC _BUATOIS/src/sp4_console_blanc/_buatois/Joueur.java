@@ -17,22 +17,41 @@ public class Joueur {
     int nombreJetonsRestants = reserveJetons.size();
     int nombreDesintegrateurs;
 
+    /**initialise le nom du joueur
+     *
+     * @param nom
+     */
     public Joueur(String nom) {
         this.nom = nom;
     }
 
+    /**affecte la couleur a un joueur (equipe jaune ou rouge)
+     *
+     * @param Couleur
+     */
     public void affecterCouleur(Joueur Couleur) {
         this.Couleur = Couleur;
     }
     
+    /**ajoute un jeton a la reserve de jeton du joueur
+     *
+     * @param J
+     */
     public void AjouterJeton(Jeton J){
         reserveJetons.add(J);
     }
     
+    /** compteur de desintegrateur 
+     * ajout 1 a ce compteur
+     */
     public void obtenirDesintegrateur(){
         nombreDesintegrateurs += 1;
     }
     
+    /**regard si le joueur peut a des desintegrateur 
+     *pour pouvoir les joués
+     * @return boolean
+     */
     public boolean utiliserDesintegrateur(){
         if (nombreDesintegrateurs ==0){
             return true;
@@ -40,7 +59,6 @@ public class Joueur {
         else{
             nombreDesintegrateurs -= 1;
             return false;
-        }
-        
+        }      
     }
 }
