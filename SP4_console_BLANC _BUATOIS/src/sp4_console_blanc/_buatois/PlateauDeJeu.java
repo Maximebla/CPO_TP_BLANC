@@ -55,9 +55,15 @@ public class PlateauDeJeu {
     //}
     
     public void afficherGrilleSurConsole(){
-        for (int i=5; i>-1; i--){
-            for ()
-            System.out.println (toString()+ " ");
+        for (int l=5; l>-1; l--){
+            for (int c=0; c<6; c++){
+                if (grille[l][c].presenceJeton()){
+                    System.out.println ("[" + toString()+ " ");
+                }
+                if (c==5){
+                    System.out.println ("\n");
+                }
+            }
         }
     }
     
