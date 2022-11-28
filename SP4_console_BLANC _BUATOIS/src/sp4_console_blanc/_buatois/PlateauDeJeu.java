@@ -200,11 +200,34 @@ public class PlateauDeJeu {
         }
     }
     
-    public boolean coloneRemplie(int ){
-        
+    public boolean coloneRemplie(int c){
+        if (grille[5][c].presenceJeton()== true){
+            return true;
+        }else{
+            return false;
+        }
     }
     
+    public void placeTrouNoir(int l,int c){
+        grille[l][c].placerTrouNoir();
+    }
     
+    public void supprimerTrouNoir(int l,int c){
+        grille[l][c].supprimerTrouNoir();
+    }
+    
+    public void placerDesintegrateur(int l,int c){
+        grille[l][c].placerDesintegrateur();
+    }  
+    
+    public void supprimerJeton(int l,int c){
+        grille[l][c].supprimerJeton();
+    }
+    
+    public Jeton recupererJeton(int l,int c){
+        grille[l][c].recupererJeton();
+        return jetonCourant;
+    }
 }
     
     

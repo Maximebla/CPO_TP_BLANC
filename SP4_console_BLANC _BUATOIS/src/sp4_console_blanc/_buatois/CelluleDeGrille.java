@@ -85,7 +85,7 @@ public class CelluleDeGrille {
      *
      * @return renvoie le jetonCourant
      */
-    public Jeton recuprerJeton(){
+    public Jeton recupererJeton(){
         Jeton temps=jetonCourant;
         jetonCourant = null;
         return temps;
@@ -145,11 +145,12 @@ public class CelluleDeGrille {
         if (presenceDesintegrateur() == true){
             return"D";
         }
-        if (presenceDesintegrateur() == false || presenceJeton() == false || presenceTrouNoir() == false ){
+        if (presenceDesintegrateur() == false && presenceJeton() == false && presenceTrouNoir() == false ){
             return".";
         }
         return null;
     }
+    
     
     
 }
