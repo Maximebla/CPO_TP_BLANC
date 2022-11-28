@@ -40,34 +40,29 @@ public class PlateauDeJeu {
     return r;  
     }
     
-    public void viderGrille(Joueur J1,Joueur J2){
-        for (int l=0; l<5; l++){
-            for (int c=0; c<6; c++){
-                if (grille[l][c].presenceJeton()== true){
-                    if (lireCouleurDuJeton(int l, int c) == "R"){
-                        J1 ;
-                    }else{
-                        J2 ;
-                    }
-                }
-            }
-        }
-    }
+    //public void viderGrille(Joueur J1,Joueur J2){
+        //for (int l=0; l<5; l++){
+            //for (int c=0; c<6; c++){
+                //if (grille[l][c].presenceJeton()== true){
+                    //if (lireCouleurDuJeton(int l, int c) == "R"){
+                   //     J1 ;
+                   // }else{
+                   //     J2 ;
+                   // }
+                //}
+           //}
+       // }
+    //}
     
     public void afficherGrilleSurConsole(){
-        for (int l=0; l<5; l++){
-            for (int c=0; c<6; c++){
-                
-            } 
-    }
+        for (int i=5; i>-1; i--){
+            for ()
+            System.out.println (toString()+ " ");
+        }
     }
     
     public boolean presenceJeton(int x, int y){
-        if(grille[x][y].presenceJeton() == true ){
-            return true;
-        }else{
-            return false;
-        }
+        return grille[x][y].presenceJeton() == true;
     }
     
     public String lireCouleurDuJeton(int x,int y){
@@ -201,11 +196,7 @@ public class PlateauDeJeu {
     }
     
     public boolean coloneRemplie(int c){
-        if (grille[5][c].presenceJeton()== true){
-            return true;
-        }else{
-            return false;
-        }
+        return grille[5][c].presenceJeton()== true;
     }
     
     public void placeTrouNoir(int l,int c){
@@ -225,7 +216,7 @@ public class PlateauDeJeu {
     }
     
     public Jeton recupererJeton(int l,int c){
-        grille[l][c].recupererJeton();
+        Jeton jetonCourant = grille[l][c].recupererJeton();
         return jetonCourant;
     }
 }
