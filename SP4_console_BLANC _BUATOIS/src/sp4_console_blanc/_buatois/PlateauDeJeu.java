@@ -31,33 +31,36 @@ public class PlateauDeJeu {
     }
     
     public boolean grilleRemplie(){
-        boolean r=false;
+        boolean r=true;
         for (int c=0; c<6; c++){
-            if (grille[7][c].presenceJeton() == true){
-                r=true;
+            if (grille[7][c].presenceJeton() == false){
+                r=false;
             }
         }
     return r;  
     }
-    //refaire je pense qu'il faut savoir si toute la grille est pleine et non pas une ligne
     
     public void viderGrille(Joueur J1,Joueur J2){
         for (int l=0; l<6; l++){
             for (int c=0; c<7; c++){
-                //if (grille[l][c].presenceJeton()== true){
-                    //if (lireCouleurDuJeton(int l, int c) == "R"){
-                        //J1 =J1+1;
-                    //}else{
-                        //J2 =J2+1;
-                    //}
-                //}
+                if (grille[l][c].presenceJeton()== true){
+                    if (lireCouleurDuJeton(int l, int c) == "R"){
+                        J1 ;
+                    }else{
+                        J2 ;
+                    }
+                }
             }
         }
     }
     
-    //public afficherGrilleSurConsole(){
-        
-    //}
+    public void afficherGrilleSurConsole(){
+        for (int l=0; l<6; l++){
+            for (int c=0; c<7; c++){
+                
+            } 
+    }
+    }
     
     public boolean presenceJeton(int x, int y){
         if(grille[x][y].presenceJeton() == true ){

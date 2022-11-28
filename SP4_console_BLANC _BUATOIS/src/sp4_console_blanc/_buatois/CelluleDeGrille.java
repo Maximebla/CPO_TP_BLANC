@@ -133,4 +133,23 @@ public class CelluleDeGrille {
         supprimerJeton();
         supprimerTrouNoir();  
     }
+
+    @Override
+    public String toString() {
+        if (presenceJeton() == true){
+            return(lireCouleurDuJeton());
+        }
+        if(presenceTrouNoir() == true){
+            return "@";
+        }
+        if (presenceDesintegrateur() == true){
+            return"D";
+        }
+        if (presenceDesintegrateur() == false || presenceJeton() == false || presenceTrouNoir() == false ){
+            return".";
+        }
+        return null;
+    }
+    
+    
 }
