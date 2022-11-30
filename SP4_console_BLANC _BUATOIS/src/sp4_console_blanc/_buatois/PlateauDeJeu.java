@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package sp4_console_blanc._buatois;
+import sp4_console_blanc._buatois.Jeton;
+import sp4_console_blanc._buatois.Joueur;
+import sp4_console_blanc._buatois.CelluleDeGrille;
 
 /**
  *
@@ -11,7 +14,7 @@ package sp4_console_blanc._buatois;
 public class PlateauDeJeu {
     CelluleDeGrille [][] grille = new CelluleDeGrille [6][7];
     
-    public void PlateauDeJeu(){
+    public PlateauDeJeu(){
         for (int l=0; l<5; l++){
             for (int c=0; c<6; c++){
                 grille[l][c] = new CelluleDeGrille();
@@ -40,19 +43,23 @@ public class PlateauDeJeu {
     return r;  
     }
     
-    //public void viderGrille(Joueur J1,Joueur J2){
-        //for (int l=0; l<5; l++){
-            //for (int c=0; c<6; c++){
-                //if (grille[l][c].presenceJeton()== true){
-                    //if (lireCouleurDuJeton(int l, int c) == "R"){
-                   //     J1 ;
-                   // }else{
-                   //     J2 ;
-                   // }
-                //}
-           //}
-       // }
-    //}
+    public void viderGrille(Joueur J1,Joueur J2){
+        String Couleur;
+        Jeton J;       
+        for (int l=0; l<5; l++){
+            for (int c=0; c<6; c++){
+                if (grille[l][c].presenceJeton()== true){
+                    Couleur = lireCouleurDuJeton(c,l);
+                    J = grille[c][l].recupererJeton();
+                    if (J1.getCouleur().equals(Couleur)){
+                        J1.AjouterJeton(J);
+                    }else{
+                        J2.AjouterJeton(J);
+                    }
+                }
+           }
+        }
+    }
     
     public void afficherGrilleSurConsole(){
         for (int l=5; l>-1; l--){
@@ -70,6 +77,31 @@ public class PlateauDeJeu {
     public boolean presenceJeton(int x, int y){
         return grille[x][y].presenceJeton() == true;
     }
+    
+    public boolean presenceTrouNoir(int l,int c){
+        if (grille[l][c].presenceTrouNoir() == true){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    
+    public boolean presenceDesintegrateur(int l, int c){
+        if (grille[l][c].presenceDesintegrateur() == true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public void placerDesintegrateur(int l,int c){
+        grille[l][c].placerDesintegrateur();
+    }
+    
+    public void placerTrouNoir(int l,int c){
+        grille[l][c].placerTrouNoir();
+    }
+    
     
     public String lireCouleurDuJeton(int x,int y){
         if(grille[x][y].lireCouleurDuJeton() == "vide" ){
@@ -205,17 +237,11 @@ public class PlateauDeJeu {
         return grille[5][c].presenceJeton()== true;
     }
     
-    public void placeTrouNoir(int l,int c){
-        grille[l][c].placerTrouNoir();
-    }
     
     public void supprimerTrouNoir(int l,int c){
         grille[l][c].supprimerTrouNoir();
     }
     
-    public void placerDesintegrateur(int l,int c){
-        grille[l][c].placerDesintegrateur();
-    }  
     
     public void supprimerJeton(int l,int c){
         grille[l][c].supprimerJeton();
