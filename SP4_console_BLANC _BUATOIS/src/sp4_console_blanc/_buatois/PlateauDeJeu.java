@@ -24,7 +24,7 @@ public class PlateauDeJeu {
     
     public int ajouterJetonDansColonne(Jeton J, int c){
         int a=- 1;
-        for (int l=0; l<7; l++){
+        for (int l=0; l<6; l++){
             if ( grille[l][c].presenceJeton() == false){
                 grille[l][c].affecterJeton(J);
                 a = l;
