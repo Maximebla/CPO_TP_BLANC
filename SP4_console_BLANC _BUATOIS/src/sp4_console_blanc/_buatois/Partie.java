@@ -100,6 +100,9 @@ public class Partie {
     }
 
     public void lancerPartie() {
+        
+         joueurCourant = listeJoueurs[1];
+               
         while (plateau.etreGagnantePourCouleur(joueurCourant.getCouleur()) == false) {
             int var = 0;
             if (var % 2 == 0) {

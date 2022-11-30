@@ -15,8 +15,8 @@ public class PlateauDeJeu {
     CelluleDeGrille [][] grille = new CelluleDeGrille [6][7];
     
     public PlateauDeJeu(){
-        for (int l=0; l<5; l++){
-            for (int c=0; c<6; c++){
+        for (int l=0; l<6; l++){
+            for (int c=0; c<7; c++){
                 grille[l][c] = new CelluleDeGrille();
             }
         }
@@ -24,7 +24,7 @@ public class PlateauDeJeu {
     
     public int ajouterJetonDansColonne(Jeton J, int c){
         int a=- 1;
-        for (int l=0; l<6; l++){
+        for (int l=0; l<7; l++){
             if ( grille[l][c].presenceJeton() == false){
                 grille[l][c].affecterJeton(J);
                 a = l;
@@ -35,7 +35,7 @@ public class PlateauDeJeu {
     
     public boolean grilleRemplie(){
         boolean r=true;
-        for (int c=0; c<5; c++){
+        for (int c=0; c<6; c++){
             if (grille[6][c].presenceJeton() == false){
                 r=false;
             }
@@ -46,8 +46,8 @@ public class PlateauDeJeu {
     public void viderGrille(Joueur J1,Joueur J2){
         String Couleur;
         Jeton J;       
-        for (int l=0; l<5; l++){
-            for (int c=0; c<6; c++){
+        for (int l=0; l<6; l++){
+            for (int c=0; c<7; c++){
                 if (grille[l][c].presenceJeton()== true){
                     Couleur = lireCouleurDuJeton(c,l);
                     J = grille[c][l].recupererJeton();
@@ -63,7 +63,7 @@ public class PlateauDeJeu {
     
     public void afficherGrilleSurConsole(){
         for (int l=5; l>-1; l--){
-            for (int c=0; c<6; c++){
+            for (int c=0; c<7; c++){
                 if (grille[l][c].presenceJeton()){
                     System.out.println ("[" + toString()+ " ");
                 }
@@ -126,8 +126,8 @@ public class PlateauDeJeu {
     public boolean ligneGagnantePourCouleur(String c) {
         boolean t = false;
         int gagner =1;
-        for (int l=0; l<2; l++){
-            for (int i=0; i<6; i++){
+        for (int l=0; l<3; l++){
+            for (int i=0; i<7; i++){
                 if (grille[l][i].presenceJeton()== true){               }
                     if (grille[l][i].lireCouleurDuJeton().equals(c)){
                         if (grille[l+1][i].lireCouleurDuJeton().equals(c)){
@@ -139,7 +139,7 @@ public class PlateauDeJeu {
                         }        
                     }
                 }
-                if (gagner == 1){
+                if (gagner == 0){
                     t = true;
                     break;
             }
@@ -151,8 +151,8 @@ public class PlateauDeJeu {
     public boolean colonneGagnantePourCouleur(String c) {
         boolean t = false;
         int gagner =1;
-        for (int l=0; l<5; l++){
-            for (int i=0; i<3; i++){
+        for (int l=0; l<6; l++){
+            for (int i=0; i<4; i++){
                 if (grille[l][i].presenceJeton()== true){               }
                     if (grille[l][i].lireCouleurDuJeton().equals(c)){
                         if (grille[l][i+1].lireCouleurDuJeton().equals(c)){
@@ -164,7 +164,7 @@ public class PlateauDeJeu {
                         }        
                     }
                 }
-                if (gagner == 1){
+                if (gagner == 0){
                     t = true;
                     break;
             }
@@ -175,8 +175,8 @@ public class PlateauDeJeu {
     public boolean diagonaleMontanteGagnantePourCouleur(String c) {
         boolean t = false;
         int gagner =1;
-        for (int l=0; l<2; l++){
-            for (int i=0; i<3; i++){
+        for (int l=0; l<3; l++){
+            for (int i=0; i<4; i++){
                 if (grille[l][i].presenceJeton()== true){               }
                     if (grille[l][i].lireCouleurDuJeton().equals(c)){
                         if (grille[l+1][i+1].lireCouleurDuJeton().equals(c)){
@@ -188,7 +188,7 @@ public class PlateauDeJeu {
                         }        
                     }
                 }
-                if (gagner == 1){
+                if (gagner == 0){
                     t = true;
                     break;
             }
@@ -200,8 +200,8 @@ public class PlateauDeJeu {
     public boolean diagonaleDesencanteGagnantePourCouleur(String c) {
         boolean t = false;
         int gagner =1;
-        for (int l=0; l<2; l++){
-            for (int i=3; i<6; i++){
+        for (int l=0; l<3; l++){
+            for (int i=3; i<7; i++){
                 if (grille[l][i].presenceJeton()== true){               }
                     if (grille[l][i].lireCouleurDuJeton().equals(c)){
                         if (grille[l-1][i-1].lireCouleurDuJeton().equals(c)){
@@ -213,7 +213,7 @@ public class PlateauDeJeu {
                         }        
                     }
                 }
-                if (gagner == 1){
+                if (gagner == 0){
                     t = true;
                     break;
             }
@@ -223,7 +223,7 @@ public class PlateauDeJeu {
     
     public void tasserColone(int a){
         Jeton J;
-        for (int l=0; l<4; l++){
+        for (int l=0; l<5; l++){
             if (grille[l][a].presenceJeton() == false){
                 if (grille[l+1][a].presenceJeton() == true){
                     J=grille[l+1][a].recupererJeton();
