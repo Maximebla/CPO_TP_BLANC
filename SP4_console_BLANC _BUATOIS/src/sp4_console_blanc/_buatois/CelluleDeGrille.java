@@ -16,7 +16,7 @@ public class CelluleDeGrille {
     /**initialise les variables soit null soit false
      *
      */
-    public void CelluleDeGrille( ){
+    public CelluleDeGrille( ){
         jetonCourant=null;
         avoirTrouNoir = false;
         avoirDesintegrateur=false;

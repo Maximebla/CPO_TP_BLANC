@@ -15,7 +15,7 @@ public class Jeton {
      *
      * @param couleur
      */
-    public void Jeton (String couleur){
+    public Jeton (String couleur){
         Couleur=couleur;
     }
 

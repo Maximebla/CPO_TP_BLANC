@@ -104,10 +104,10 @@ public class PlateauDeJeu {
     
     
     public String lireCouleurDuJeton(int x,int y){
-        if(grille[x][y].lireCouleurDuJeton() == "vide" ){
+        if("vide".equals(grille[x][y].lireCouleurDuJeton()) ){
             return "rien";
         }else{
-            if(grille[x][y].lireCouleurDuJeton() == "R" ){
+            if("R".equals(grille[x][y].lireCouleurDuJeton()) ){
                 return "R";
             }else{
                 return "J" ;

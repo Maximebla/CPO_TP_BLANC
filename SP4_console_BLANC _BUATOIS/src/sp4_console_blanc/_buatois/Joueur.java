@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Joueur {
     private String nom;
-    Joueur Couleur;
+    String Couleur;
     ArrayList<Jeton> reserveJetons = new ArrayList<Jeton>();
     int nombreJetonsRestants = reserveJetons.size();
     int nombreDesintegrateurs;
@@ -29,10 +29,15 @@ public class Joueur {
      *
      * @param Couleur
      */
-    public void affecterCouleur(Joueur Couleur) {
+    public void affecterCouleur(String Couleur) {
         this.Couleur = Couleur;
     }
+
+    public String getCouleur() {
+        return Couleur;
+    }
     
+        
     /**ajoute un jeton a la reserve de jeton du joueur
      *
      * @param J
@@ -60,5 +65,13 @@ public class Joueur {
             nombreDesintegrateurs -= 1;
             return false;
         }      
+    }
+    
+    public Jeton jouerJeton(){
+        Jeton J;
+        int index=0;
+        J = reserveJetons.get(0);
+        reserveJetons.remove(0);
+        return J;
     }
 }
