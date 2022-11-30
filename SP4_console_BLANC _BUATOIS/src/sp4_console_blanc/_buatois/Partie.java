@@ -4,6 +4,12 @@
  */
 package sp4_console_blanc._buatois;
 
+import java.util.Scanner;
+import sp4_console_blanc._buatois.Jeton;
+import sp4_console_blanc._buatois.Joueur;
+import sp4_console_blanc._buatois.PlateauDeJeu;
+import sp4_console_blanc._buatois.CelluleDeGrille;
+
 /**
  *
  * @author User
@@ -14,20 +20,37 @@ public class Partie {
     private PlateauDeJeu plateau;
 
     public Partie(Joueur J1, Joueur J2) {
-        listeJoueurs[1]=J1;
-        listeJoueurs[2]=J2;
+        listeJoueurs[0]=J1;
+        listeJoueurs[1]=J2;
     }
     
-    public attribuerCouleurAuxJoueurs(){
-        Math.random()*(2-1);
+    public void attribuerCouleurAuxJoueurs(){
+        int a = (int) (Math.random()*(2));
            if (a==1){
-               
+               listeJoueurs[0].affecterCouleur("jaune");
+               listeJoueurs[1].affecterCouleur("rouge");
            }else{
-               
+               listeJoueurs[0].affecterCouleur("rouge");
+               listeJoueurs[1].affecterCouleur("jaune");
            }
     }
     
-    public creerEtAffecterJeton(Joueur J){
+    public void creerEtAffecterJeton(Joueur J){
+        if ("rouge".equals(J.getCouleur())){
+            for (int i=0; i<30; i++){
+                Jeton JT = new Jeton("rouge");
+                J.AjouterJeton(JT);
+            }
+        }else{
+            for (int i=0; i<30; i++){
+                Jeton JT = new Jeton("jaune");
+                J.AjouterJeton(JT);
+            }
+        }
+        
+    }
+    
+    public placerTrousNoirsEtDesintegrateurs(){
         
     }
 }
