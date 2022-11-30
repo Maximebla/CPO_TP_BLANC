@@ -10,6 +10,7 @@ import sp4_console_blanc._buatois.Joueur;
 import sp4_console_blanc._buatois.PlateauDeJeu;
 import sp4_console_blanc._buatois.CelluleDeGrille;
 
+
 /**
  *
  * @author User
@@ -50,7 +51,62 @@ public class Partie {
         
     }
     
-    public placerTrousNoirsEtDesintegrateurs(){
+    public void placerTrousNoirsEtDesintegrateurs(){
+        int i=0;
+        while (i<3) {
+            int l=(int) (Math.random() * (9-3));
+            int c=(int) (Math.random()* (8-3));
+            if (plateau.presenceDesintegrateur(l,c)==false) {
+                 if (plateau.presenceTrouNoir(l,c)==false) {
+                     plateau.placerTrouNoir (l,c);
+                     plateau.placerDesintegrateur (l,c);
+                     i += 1;
+                 }
+            }
+            
+        }
+        while (i<5) {
+            int l=(int) (Math.random() * (9-3));
+            int c=(int) (Math.random()* (8-3));
+            if (plateau.presenceDesintegrateur(l,c)==false) {
+                 if (plateau.presenceTrouNoir(l,c)==false) {
+                     plateau.placerTrouNoir (l,c);
+                     plateau.placerDesintegrateur (l,c);
+                     i += 1;
+                 }
+            }
+            
+        }
+        while (i<7) {
+            int l=(int) (Math.random() * (9-3));
+            int c=(int) (Math.random()* (8-3));
+            if (plateau.presenceDesintegrateur(l,c)==false) {
+                 if (plateau.presenceTrouNoir(l,c)==false) {
+                     plateau.placerTrouNoir (l,c);
+                     plateau.placerDesintegrateur (l,c);
+                     i += 1;
+                 }
+            }
+            
+        }
+    }
+    
+    public void initialiserPartie() {
+        attribuerCouleurAuxJoueurs();
+        creerEtAffecterJeton(listeJoueurs[1]);
+        creerEtAffecterJeton(listeJoueurs[0]);
+        placerTrousNoirsEtDesintegrateurs();
+    }
+    
+    public void lancerPartie(){
+        while (plateau.etreGagnantePourCouleur(joueurCourant.getCouleur())== false){
+            int n=0;
+            if (n%2 == 0) {
+                joueurCourant = listeJoueurs[0];
+                Sysem.out.println("")
+            }
+        }
         
     }
+    
 }
