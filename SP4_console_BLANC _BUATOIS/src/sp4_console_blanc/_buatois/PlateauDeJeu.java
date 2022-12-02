@@ -23,14 +23,15 @@ public class PlateauDeJeu {
     }
     
     public int ajouterJetonDansColonne(Jeton J, int c){
-        int a=- 1;
-        for (int l=0; l<6; l++){
-            if ( grille[l][c].presenceJeton() == false){
-                grille[l][c].affecterJeton(J);
-                a = l;
-            }   
-        }  
-    return a;
+        int a=0;
+        for (int i=0; i<6; i++){
+            if (grille[i][c].presenceJeton() != true){
+                grille[i][c].affecterJeton(J);
+               a=i;
+                break;
+            }
+        }
+        return a;
     }
     
     public boolean grilleRemplie(){
@@ -64,11 +65,10 @@ public class PlateauDeJeu {
     public void afficherGrilleSurConsole(){
         for (int l=5; l>-1; l--){
             for (int c=0; c<7; c++){
-                if (grille[l][c].presenceJeton()){
-                    System.out.println ("[" + toString()+ " ");
-                }
-                if (c==5){
-                    System.out.println ("\n");
+                System.out.print ("[" + grille[l][c]+ "]");
+                
+                if (c==6){
+                    System.out.print ("\n");
                 }
             }
         }

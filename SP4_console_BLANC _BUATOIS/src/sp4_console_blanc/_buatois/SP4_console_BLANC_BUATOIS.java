@@ -19,6 +19,8 @@ public class SP4_console_BLANC_BUATOIS {
        Partie partie1 = new Partie(Joseph,Martine);
        partie1.initialiserPartie();
        partie1.lancerPartie();
+       
+       
     }
     
 }

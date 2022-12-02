@@ -34,12 +34,12 @@ public class Jeton {
     @Override
     public String toString() {
         String Couleur1;
-        if (Couleur == "Jaune"){
+        if (Couleur == "jaune"){
             Couleur1="J";
         }else{
             Couleur1="R";
         }
-        return "Jeton{" + "Couleur=" + Couleur1 + '}';
+        return  Couleur1;
     }
     
 }

@@ -38,18 +38,21 @@ public class Partie {
     }
 
     public void creerEtAffecterJeton(Joueur J) {
+        System.out.println(J.Couleur);
         if ("rouge".equals(J.getCouleur())) {
             for (int i = 0; i < 30; i++) {
+                System.out.println("rrrrrrr");
                 Jeton JT = new Jeton("rouge");
                 J.AjouterJeton(JT);
             }
         } else {
             for (int i = 0; i < 30; i++) {
+                System.out.println("jjjjj");
                 Jeton JT = new Jeton("jaune");
                 J.AjouterJeton(JT);
             }
         }
-
+        //System.out.println(listeJoueurs[0].reserveJetons.get(0) + ""+ listeJoueurs[1].reserveJetons.get(0));
     }
 
     public void placerTrousNoirsEtDesintegrateurs() {
@@ -71,7 +74,7 @@ public class Partie {
             int c = (int) (Math.random() * (8 - 3));
             if (plateau.presenceDesintegrateur(l, c) == false) {
                 if (plateau.presenceTrouNoir(l, c) == false) {
-                    plateau.placerTrouNoir(l, c);
+                    //plateau.placerTrouNoir(l, c);
                     plateau.placerDesintegrateur(l, c);
                     i += 1;
                 }
@@ -84,7 +87,7 @@ public class Partie {
             if (plateau.presenceDesintegrateur(l, c) == false) {
                 if (plateau.presenceTrouNoir(l, c) == false) {
                     plateau.placerTrouNoir(l, c);
-                    plateau.placerDesintegrateur(l, c);
+                    //plateau.placerDesintegrateur(l, c);
                     i += 1;
                 }
             }
@@ -96,17 +99,22 @@ public class Partie {
         attribuerCouleurAuxJoueurs();
         creerEtAffecterJeton(listeJoueurs[1]);
         creerEtAffecterJeton(listeJoueurs[0]);
+        System.out.println(listeJoueurs[0].reserveJetons.get(0) + ""+ listeJoueurs[1].reserveJetons.get(0));
         placerTrousNoirsEtDesintegrateurs();
+        plateau.afficherGrilleSurConsole();
     }
 
     public void lancerPartie() {
         
          joueurCourant = listeJoueurs[1];
-               
-        while (plateau.etreGagnantePourCouleur(joueurCourant.getCouleur()) == false) {
-            int var = 0;
+        int var = 0;       
+        while (plateau.etreGagnantePourCouleur(listeJoueurs[0].getCouleur()) == false || plateau.etreGagnantePourCouleur(listeJoueurs[1].getCouleur()) == false ) {
+           
             if (var % 2 == 0) {
                 joueurCourant = listeJoueurs[0];
+            }else{
+                joueurCourant = listeJoueurs[1];
+            }
                 System.out.println("Pour jouer un jeton tapez '1',pour récupérer un jeton, tapez '2' et pour utiliser un désintegrateur, tapez'3'");
                 Scanner reponse = new Scanner(System.in);
                 int rep = reponse.nextInt();
@@ -118,7 +126,8 @@ public class Partie {
                         c = colonne.nextInt();
                     }
                     plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), c - 1);
-                    var += 1;
+                    plateau.afficherGrilleSurConsole();
+                   
                 }
                 if (rep == 2) {
                     int c = 100;
@@ -135,7 +144,8 @@ public class Partie {
                     }
 
                     plateau.recupererJeton(l - 1, c - 1);
-                    var += 1;
+                    plateau.afficherGrilleSurConsole();
+                  
                 }
                 if (rep == 3) {
                     int c = 100;
@@ -151,60 +161,10 @@ public class Partie {
                         l = ligne.nextInt();
                     }
                     plateau.placerDesintegrateur(l - 1, c - 1);
-                    var += 1;
+                    plateau.afficherGrilleSurConsole();
+                   
                 }
-            }
-            if (var % 2 == 1) {
-                joueurCourant = listeJoueurs[1];
-                System.out.println("Que voulez vous faire, si vous voulez jouer un jeton tapez '1', si vous voulez récupérer un jeton, tapez '2' et si vous voulez utiliser un désintegrateur, tapez'3'");
-                Scanner reponse = new Scanner(System.in);
-                int rep = reponse.nextInt();
-                if (rep == 1) {
-                    int c = 100;
-                    Scanner colonne = new Scanner(System.in);
-                    while (c > 7) {
-                        System.out.println("Dans quelle colonne voulez vous placer votre jeton");
-                        c = colonne.nextInt();
-                    }
-                    plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), c - 1);
-                    var += 1;
-                }
-                if (rep == 2) {
-                    int c = 100;
-                    int l = 100;
-                    Scanner colonne = new Scanner(System.in);
-                    Scanner ligne = new Scanner(System.in);
-                    while (c > 7) {
-                        System.out.println("De quelle colonne voulez vous récupérer votre jeton");
-                        c = colonne.nextInt();
-                    }
-                    while (l > 6) {
-                        System.out.println("De quelle ligne voulez vous récuprer votre jeton");
-                        l = ligne.nextInt();
-                    }
-
-                    plateau.recupererJeton(l - 1, c - 1);
-                    var += 1;
-                }
-                if (rep == 3) {
-                    int c = 100;
-                    int l = 100;
-                    Scanner colonne = new Scanner(System.in);
-                    Scanner ligne = new Scanner(System.in);
-                    while (c > 7) {
-                        System.out.println("Dans quelle colonne voulez vous utiliser votre desintegrateur");
-                        c = colonne.nextInt();
-                    }
-                    while (l > 6) {
-                        System.out.println("Dans quelle ligne voulez vous utiliser votre desintegrateur");
-                        l = ligne.nextInt();
-                    }
-                    plateau.placerDesintegrateur(l - 1, c - 1);
-                    var += 1;
-                }
-
-            }
+            var+=1;
         }
     }
-
 }

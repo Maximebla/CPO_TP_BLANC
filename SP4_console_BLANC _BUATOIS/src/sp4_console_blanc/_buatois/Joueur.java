@@ -42,8 +42,10 @@ public class Joueur {
      *
      * @param J
      */
-    public void AjouterJeton(Jeton J){
-        reserveJetons.add(J);
+    public void AjouterJeton(Jeton JT){
+        System.out.println("avant : "+JT.lireCouleur());
+        reserveJetons.add(JT);
+        System.out.println("reserve : "+reserveJetons.get(0).lireCouleur());
     }
     
     /** compteur de desintegrateur 
