@@ -13,7 +13,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private Joueur[] listeJoueurs = new Joueur[2];
     private Joueur joueurCourant;
     private PlateauDeJeu plateau;
-    
 
     /**
      * Creates new form fenetreDeJeu
@@ -261,6 +260,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         panneau_info_joueurs.setVisible(true);
         panneau_info_partie.setVisible(true);
+        initialiserPartie();
     }//GEN-LAST:event_btn_startActionPerformed
 
     /**
@@ -298,7 +298,86 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         });
     }
 
+    public void initialiserPartie() {
+        String nomJoueur1=nom_joueur1.getText();
+        String nomJoueur2=nom_joueur2.getText();
+        Joueur J1 = new Joueur(nomJoueur1); 
+        Joueur J2 = new Joueur(nomJoueur2);
+        listeJoueurs[0] = J1;
+        listeJoueurs[1] = J2;
+        Joueur J=listeJoueurs[1]; //
+        if ("rouge".equals(J.getCouleur())) {
+            for (int i = 0; i < 30; i++) {
+                Jeton JT = new Jeton("rouge");
+                J.AjouterJeton(JT);
+            }
+        } else {
+            for (int i = 0; i < 30; i++) {
+                Jeton JT = new Jeton("jaune");
+                J.AjouterJeton(JT);
+            }
+        }
+        if ("rouge".equals(J.getCouleur())) {
+            for (int i = 0; i < 30; i++) {
+                Jeton JT = new Jeton("rouge");
+                J.AjouterJeton(JT);
+            }
+        } else {
+            for (int i = 0; i < 30; i++) {
+                Jeton JT = new Jeton("jaune");
+                J.AjouterJeton(JT);
+            }
+        }
+        int i = 0;
+        while (i < 3) {
+            int l = (int) (Math.random() * (9 - 3));
+            int c = (int) (Math.random() * (8 - 3));
+            if (plateau.presenceDesintegrateur(l, c) == false) {
+                if (plateau.presenceTrouNoir(l, c) == false) {
+                    plateau.placerTrouNoir(l, c);
+                    plateau.placerDesintegrateur(l, c);
+                    i += 1;
+                }
+            }
+
+        }
+        while (i < 5) {
+            int l = (int) (Math.random() * (9 - 3));
+            int c = (int) (Math.random() * (8 - 3));
+            if (plateau.presenceDesintegrateur(l, c) == false) {
+                if (plateau.presenceTrouNoir(l, c) == false) {
+                    plateau.placerTrouNoir(l, c);
+                    plateau.placerDesintegrateur(l, c);
+                    i += 1;
+                }
+            }
+
+        }
+        while (i < 7) {
+            int l = (int) (Math.random() * (9 - 3));
+            int c = (int) (Math.random() * (8 - 3));
+            if (plateau.presenceDesintegrateur(l, c) == false) {
+                if (plateau.presenceTrouNoir(l, c) == false) {
+                    plateau.placerTrouNoir(l, c);
+                    plateau.placerDesintegrateur(l, c);
+                    i += 1;
+                }
+            }
+
+        }
+    }
     
+    public void attribuerCouleurAuxJoueurs() {
+        int a = (int) (Math.random() * (2));
+        if (a == 1) {
+            listeJoueurs[0].affecterCouleur("jaune");
+            listeJoueurs[1].affecterCouleur("rouge");
+        } else {
+            listeJoueurs[0].affecterCouleur("rouge");
+            listeJoueurs[1].affecterCouleur("jaune");
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_col_0;
     private javax.swing.JButton btn_col_1;
