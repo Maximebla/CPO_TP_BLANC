@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author User
  */
 public class Joueur {
-    private String nom;
+    String nom;
     String Couleur;
     ArrayList<Jeton> reserveJetons = new ArrayList<Jeton>();
     int nombreJetonsRestants = reserveJetons.size();

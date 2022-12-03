@@ -4,6 +4,8 @@
  */
 package sp4_console_blanc._buatois;
 
+import java.util.Random;
+
 /**
  *
  * @author User
@@ -66,9 +68,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        nbl_j1_nom1 = new javax.swing.JLabel();
-        nbl_j1_couleur1 = new javax.swing.JLabel();
-        nbl_j1_desint1 = new javax.swing.JLabel();
+        nbl_j1_nom = new javax.swing.JLabel();
+        nbl_j1_couleur = new javax.swing.JLabel();
+        nbl_j1_desint = new javax.swing.JLabel();
         btn_col_6 = new javax.swing.JButton();
         btn_col_0 = new javax.swing.JButton();
         btn_col_1 = new javax.swing.JButton();
@@ -187,14 +189,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabel9.setText("desintegrateurs :");
         panneau_info_joueurs.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 124, -1, -1));
 
-        nbl_j1_nom1.setText("nomJoueur1");
-        panneau_info_joueurs.add(nbl_j1_nom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, 20));
+        nbl_j1_nom.setText("nomJoueur1");
+        panneau_info_joueurs.add(nbl_j1_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, 20));
 
-        nbl_j1_couleur1.setText("couleurjoueur1");
-        panneau_info_joueurs.add(nbl_j1_couleur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 80, 30));
+        nbl_j1_couleur.setText("couleurjoueur1");
+        panneau_info_joueurs.add(nbl_j1_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 80, 30));
 
-        nbl_j1_desint1.setText("nbdesinjoueur1");
-        panneau_info_joueurs.add(nbl_j1_desint1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, 20));
+        nbl_j1_desint.setText("nbdesinjoueur1");
+        panneau_info_joueurs.add(nbl_j1_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, 20));
 
         getContentPane().add(panneau_info_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 190, 290, 270));
 
@@ -261,6 +263,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_joueurs.setVisible(true);
         panneau_info_partie.setVisible(true);
         initialiserPartie();
+        panneau_grille.repaint();
+        btn_start.setEnabled(false);
+        
     }//GEN-LAST:event_btn_startActionPerformed
 
     /**
@@ -303,9 +308,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         String nomJoueur2=nom_joueur2.getText();
         Joueur J1 = new Joueur(nomJoueur1); 
         Joueur J2 = new Joueur(nomJoueur2);
+        attribuerCouleurAuxJoueurs();
+        
+        nbl_j1_nom.setText(nomJoueur1);
+        nbl_j2_nom.setText(nomJoueur2);
+        nbl_j1_couleur.setText(J1.Couleur);
+        nbl_j2_couleur.setText(J2.Couleur);
+        nbl_j1_desint.setText(J1.nombreDesintegrateurs+"");
+        nbl_j2_desint.setText(J2.nombreDesintegrateurs+"");
+        nbl_jcourant.setText(joueurCourant.nom);
+        
         listeJoueurs[0] = J1;
         listeJoueurs[1] = J2;
-        Joueur J=listeJoueurs[1]; //
+        Joueur J = listeJoueurs[1];
         if ("rouge".equals(J.getCouleur())) {
             for (int i = 0; i < 30; i++) {
                 Jeton JT = new Jeton("rouge");
@@ -377,7 +392,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             listeJoueurs[1].affecterCouleur("jaune");
         }
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_col_0;
     private javax.swing.JButton btn_col_1;
@@ -402,9 +417,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JScrollPane message;
-    private javax.swing.JLabel nbl_j1_couleur1;
-    private javax.swing.JLabel nbl_j1_desint1;
-    private javax.swing.JLabel nbl_j1_nom1;
+    private javax.swing.JLabel nbl_j1_couleur;
+    private javax.swing.JLabel nbl_j1_desint;
+    private javax.swing.JLabel nbl_j1_nom;
     private javax.swing.JLabel nbl_j2_couleur;
     private javax.swing.JLabel nbl_j2_desint;
     private javax.swing.JLabel nbl_j2_nom;

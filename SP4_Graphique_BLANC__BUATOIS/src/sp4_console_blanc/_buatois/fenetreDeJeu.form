@@ -338,7 +338,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="nbl_j1_nom1">
+        <Component class="javax.swing.JLabel" name="nbl_j1_nom">
           <Properties>
             <Property name="text" type="java.lang.String" value="nomJoueur1"/>
           </Properties>
@@ -348,7 +348,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="nbl_j1_couleur1">
+        <Component class="javax.swing.JLabel" name="nbl_j1_couleur">
           <Properties>
             <Property name="text" type="java.lang.String" value="couleurjoueur1"/>
           </Properties>
@@ -358,7 +358,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="nbl_j1_desint1">
+        <Component class="javax.swing.JLabel" name="nbl_j1_desint">
           <Properties>
             <Property name="text" type="java.lang.String" value="nbdesinjoueur1"/>
           </Properties>
