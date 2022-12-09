@@ -9,7 +9,7 @@ package sp4_console_blanc._buatois;
  * @author User
  */
 public class CelluleDeGrille {
-    private Jeton jetonCourant ;
+    Jeton jetonCourant ;
     private boolean avoirTrouNoir ;
     private boolean avoirDesintegrateur ;
             
@@ -48,7 +48,7 @@ public class CelluleDeGrille {
      */
     public String lireCouleurDuJeton(){
         if (jetonCourant != null){
-            return jetonCourant.toString();     
+            return jetonCourant.lireCouleur();     
         }else{
             return "vide";
         }

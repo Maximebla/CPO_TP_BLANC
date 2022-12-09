@@ -20,7 +20,6 @@ public class SP4_console_BLANC_BUATOIS {
        partie1.initialiserPartie();
        partie1.lancerPartie();
        
-       
     }
     
 }

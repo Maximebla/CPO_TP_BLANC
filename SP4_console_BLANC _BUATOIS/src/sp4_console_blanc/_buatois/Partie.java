@@ -5,10 +5,6 @@
 package sp4_console_blanc._buatois;
 
 import java.util.Scanner;
-import sp4_console_blanc._buatois.Jeton;
-import sp4_console_blanc._buatois.Joueur;
-import sp4_console_blanc._buatois.PlateauDeJeu;
-import sp4_console_blanc._buatois.CelluleDeGrille;
 
 /**
  *
@@ -41,13 +37,11 @@ public class Partie {
         System.out.println(J.Couleur);
         if ("rouge".equals(J.getCouleur())) {
             for (int i = 0; i < 30; i++) {
-                System.out.println("rrrrrrr");
                 Jeton JT = new Jeton("rouge");
                 J.AjouterJeton(JT);
             }
         } else {
             for (int i = 0; i < 30; i++) {
-                System.out.println("jjjjj");
                 Jeton JT = new Jeton("jaune");
                 J.AjouterJeton(JT);
             }
@@ -108,7 +102,7 @@ public class Partie {
         
          joueurCourant = listeJoueurs[1];
         int var = 0;       
-        while (plateau.etreGagnantePourCouleur(listeJoueurs[0].getCouleur()) == false || plateau.etreGagnantePourCouleur(listeJoueurs[1].getCouleur()) == false ) {
+        while (plateau.etreGagnantePourCouleur(listeJoueurs[0].getCouleur()) == false && plateau.etreGagnantePourCouleur(listeJoueurs[1].getCouleur()) == false ) {
            
             if (var % 2 == 0) {
                 joueurCourant = listeJoueurs[0];
@@ -118,53 +112,66 @@ public class Partie {
                 System.out.println("Pour jouer un jeton tapez '1',pour récupérer un jeton, tapez '2' et pour utiliser un désintegrateur, tapez'3'");
                 Scanner reponse = new Scanner(System.in);
                 int rep = reponse.nextInt();
+                
                 if (rep == 1) {
                     int c = 100;
                     Scanner colonne = new Scanner(System.in);
-                    while (c > 7) {
+                    while (c > 7 || c < 0) {
                         System.out.println("Choisissez la colonne où placer le jeton");
                         c = colonne.nextInt();
                     }
-                    plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), c - 1);
+                    int l = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), c-1);
+                    if (plateau.presenceTrouNoir(c - 1,l)==true){
+                        plateau.supprimerJeton( c-1,l);  
+                        plateau.supprimerTrouNoir( c-1,l);
+                    }
+                    if(plateau.presenceDesintegrateur( c-1,l)==true){
+                        joueurCourant.obtenirDesintegrateur();
+                        plateau.supprimerDesintegrateur( c-1,l);
+                        System.out.println("vous avez pris un desintegrateur");
+                    }
                     plateau.afficherGrilleSurConsole();
-                   
                 }
+                
                 if (rep == 2) {
                     int c = 100;
                     int l = 100;
                     Scanner colonne = new Scanner(System.in);
                     Scanner ligne = new Scanner(System.in);
-                    while (c > 7) {
+                    while (c > 7 || c < 0) {
                         System.out.println("Choisissez la colonne où vous voulez récupérer le jeton");
                         c = colonne.nextInt();
                     }
-                    while (l > 6) {
+                    while (l > 6 || l < 0) {
                         System.out.println("Choisissez la ligne où vous voulez récupérer le jeton");
                         l = ligne.nextInt();
                     }
 
                     plateau.recupererJeton(l - 1, c - 1);
                     plateau.afficherGrilleSurConsole();
-                  
                 }
+                
                 if (rep == 3) {
                     int c = 100;
                     int l = 100;
                     Scanner colonne = new Scanner(System.in);
                     Scanner ligne = new Scanner(System.in);
-                    while (c > 7) {
-                        System.out.println("Choisissez la colonne où placer le jeton");
-                        c = colonne.nextInt();
-                    }
-                    while (l > 6) {
-                        System.out.println("Dans quelle ligne voulez vous placer votre jeton");
-                        l = ligne.nextInt();
-                    }
+                    //while (){
+                        while (c > 7 || c < 0) {
+                            System.out.println("Choisissez la colonne où vous voulez désintégrer votre Jeton");
+                            c = colonne.nextInt();
+                        }
+                        while (l > 6  || l < 0) {
+                            System.out.println("Choisissez la ligne où vous voulez désintégrer votre jeton");
+                            l = ligne.nextInt();
+                        }
+                    //}
                     plateau.placerDesintegrateur(l - 1, c - 1);
                     plateau.afficherGrilleSurConsole();
-                   
                 }
+                
             var+=1;
         }
+        System.out.println("le joueur "+joueurCourant+"a gagné");
     }
 }

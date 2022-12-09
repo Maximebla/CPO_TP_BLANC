@@ -14,7 +14,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private Joueur[] listeJoueurs = new Joueur[2];
     private Joueur joueurCourant;
-    private PlateauDeJeu plateau;
+    private PlateauDeJeu plateau = new PlateauDeJeu();
 
     /**
      * Creates new form fenetreDeJeu
@@ -27,6 +27,52 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(plateau.grille[i][j]);
+
+                cellGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        CelluleDeGrille c = cellGraph.celluleAssociee; // A revoir
+                        if (c.jetonCourant == null) {
+                            return;
+                        }
+
+                        if (c.jetonCourant.lireCouleur().equals(joueurCourant.Couleur)) {
+                            textmessage.setText("Le joueur " + joueurCourant.nom + " recupère un de ses jetons");
+                            Jeton Jrecup = c.recupererJeton();
+                            joueurCourant.AjouterJeton(Jrecup);
+                            joueurSuivant();
+                        } else {
+                            if (joueurCourant.nombreDesintegrateurs > 0) {
+                                textmessage.setText("Le joueur " + joueurCourant.nom + " desintegre un jeton");
+                                c.supprimerJeton();
+                                joueurCourant.utiliserDesintegrateur();
+                                joueurSuivant();
+                            } else {
+                                return;
+                            }
+                        }
+                        plateau.tasserGrille();
+                        panneau_grille.repaint();
+                        nbl_j1_desint.setText(listeJoueurs[0].nombreDesintegrateurs + "");
+                        nbl_j2_desint.setText(listeJoueurs[1].nombreDesintegrateurs + "");
+
+                        boolean vic_J1 = plateau.etreGagnantePourCouleur(listeJoueurs[0] + "");
+                        boolean vic_J2 = plateau.etreGagnantePourCouleur(listeJoueurs[1] + "");
+
+                        if (vic_J1 && !vic_J2) {
+                            textmessage.setText("Victoire de " + listeJoueurs[0].nom);
+                        } else if (vic_J2 && !vic_J1) {
+                            textmessage.setText("Victoire de " + listeJoueurs[1].nom);
+                        } else if (vic_J2 && vic_J1) {
+                            if (joueurCourant == listeJoueurs[0]) {
+                                textmessage.setText("Victoire de " + listeJoueurs[1].nom + "(faute de jeu de l'autre joueur)");
+                            } else {
+                                textmessage.setText("Victoire de " + listeJoueurs[0].nom + "(faute de jeu de l'autre joueur)");
+                            }
+                        }
+                        panneau_grille.repaint();
+                    }
+                });
+
                 panneau_grille.add(cellGraph);
 
             }
@@ -49,7 +95,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         nbl_jcourant = new javax.swing.JLabel();
         message = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textmessage = new javax.swing.JTextArea();
         panneau_creation_partie = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -113,9 +159,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         nbl_jcourant.setText("nomJoueur2");
         panneau_info_partie.add(nbl_jcourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 66, -1, 20));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        message.setViewportView(jTextArea1);
+        textmessage.setColumns(20);
+        textmessage.setRows(5);
+        message.setViewportView(textmessage);
 
         panneau_info_partie.add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 270, -1));
 
@@ -209,12 +255,27 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(626, 20, -1, 40));
 
         btn_col_0.setText("1");
+        btn_col_0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_0ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_col_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 40));
 
         btn_col_1.setText("2");
+        btn_col_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_col_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 20, -1, 40));
 
         btn_col_2.setText("3");
+        btn_col_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_col_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 20, -1, 40));
 
         btn_col_3.setText("4");
@@ -226,6 +287,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         getContentPane().add(btn_col_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 20, -1, 40));
 
         btn_col_4.setText("5");
+        btn_col_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_col_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 20, -1, 40));
 
         btn_col_5.setText("6");
@@ -249,14 +315,32 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
         // TODO add your handling code here:
+        joueurActuel();
+        jouerDansColone(3);
+        if (plateau.coloneRemplie(3) == true) {
+            btn_col_3.setEnabled(false);
+        }
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
         // TODO add your handling code here:
+        joueurActuel();
+        jouerDansColone(6);
+        if (plateau.coloneRemplie(6) == true) {
+            btn_col_6.setEnabled(false);
+        }
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
         // TODO add your handling code here:
+        joueurActuel();
+        jouerDansColone(5);
+        if (plateau.coloneRemplie(5) == true) {
+            btn_col_5.setEnabled(false);
+        }
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
@@ -265,8 +349,103 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initialiserPartie();
         panneau_grille.repaint();
         btn_start.setEnabled(false);
-        
+
     }//GEN-LAST:event_btn_startActionPerformed
+
+    private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
+        // TODO add your handling code here:
+        joueurActuel();
+        jouerDansColone(0);
+        if (plateau.coloneRemplie(0) == true) {
+            btn_col_0.setEnabled(false);
+        }
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_0ActionPerformed
+
+    private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
+        // TODO add your handling code here:
+        joueurActuel();
+        jouerDansColone(1);
+        if (plateau.coloneRemplie(1) == true) {
+            btn_col_1.setEnabled(false);
+        }
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_1ActionPerformed
+
+    private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
+        // TODO add your handling code here:
+        joueurActuel();
+        jouerDansColone(2);
+        if (plateau.coloneRemplie(2) == true) {
+            btn_col_2.setEnabled(false);
+        }
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_2ActionPerformed
+
+    private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
+        // TODO add your handling code here:
+        joueurActuel();
+        jouerDansColone(4);
+        if (plateau.coloneRemplie(4) == true) {
+            btn_col_4.setEnabled(false);
+        }
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_4ActionPerformed
+
+    public boolean jouerDansColone(int indice_colonne) {
+        int a;
+        a = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), indice_colonne);
+        if (plateau.presenceTrouNoir(a, indice_colonne) == true) {
+            plateau.supprimerJeton(a, indice_colonne);
+            plateau.supprimerTrouNoir(a, indice_colonne);
+        }
+        if (plateau.presenceDesintegrateur(a, indice_colonne) == true) {
+            joueurCourant.obtenirDesintegrateur();
+            plateau.supprimerDesintegrateur(a, indice_colonne);
+        }
+
+        nbl_j1_desint.setText(listeJoueurs[0].nombreDesintegrateurs + "");
+        nbl_j2_desint.setText(listeJoueurs[1].nombreDesintegrateurs + "");
+
+        boolean vic_J1 = plateau.etreGagnantePourCouleur(listeJoueurs[0] + "");
+        boolean vic_J2 = plateau.etreGagnantePourCouleur(listeJoueurs[1] + "");
+
+        if (vic_J1 && !vic_J2) {
+            textmessage.setText("Victoire de " + listeJoueurs[0].nom);
+        } else if (vic_J2 && !vic_J1) {
+            textmessage.setText("Victoire de " + listeJoueurs[1].nom);
+        } else if (vic_J2 && vic_J1) {
+            if (joueurCourant == listeJoueurs[0]) {
+                textmessage.setText("Victoire de " + listeJoueurs[1].nom + "(faute de jeu de l'autre joueur)");
+            } else {
+                textmessage.setText("Victoire de " + listeJoueurs[0].nom + "(faute de jeu de l'autre joueur)");
+            }
+        }
+        panneau_grille.repaint();
+        if (a == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Joueur joueurActuel() {
+        if (joueurCourant == listeJoueurs[0]) {
+            joueurCourant = listeJoueurs[0];
+        } else {
+            joueurCourant = listeJoueurs[1];
+        }
+        return joueurCourant;
+    }
+
+    public void joueurSuivant() {
+        if (joueurCourant == listeJoueurs[0]) {
+            joueurCourant = listeJoueurs[1];
+        } else {
+            joueurCourant = listeJoueurs[0];
+        }
+        nbl_jcourant.setText(joueurCourant.nom);
+    }
 
     /**
      * @param args the command line arguments
@@ -304,45 +483,34 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
 
     public void initialiserPartie() {
-        String nomJoueur1=nom_joueur1.getText();
-        String nomJoueur2=nom_joueur2.getText();
-        Joueur J1 = new Joueur(nomJoueur1); 
+        String nomJoueur1 = nom_joueur1.getText();
+        String nomJoueur2 = nom_joueur2.getText();
+        Joueur J1 = new Joueur(nomJoueur1);
         Joueur J2 = new Joueur(nomJoueur2);
+        listeJoueurs[0] = J1;
+        listeJoueurs[1] = J2;
+        Joueur joueurCourant = listeJoueurs[1];
         attribuerCouleurAuxJoueurs();
-        
+
         nbl_j1_nom.setText(nomJoueur1);
         nbl_j2_nom.setText(nomJoueur2);
         nbl_j1_couleur.setText(J1.Couleur);
         nbl_j2_couleur.setText(J2.Couleur);
-        nbl_j1_desint.setText(J1.nombreDesintegrateurs+"");
-        nbl_j2_desint.setText(J2.nombreDesintegrateurs+"");
+        nbl_j1_desint.setText(J1.nombreDesintegrateurs + "");
+        nbl_j2_desint.setText(J2.nombreDesintegrateurs + "");
         nbl_jcourant.setText(joueurCourant.nom);
-        
-        listeJoueurs[0] = J1;
-        listeJoueurs[1] = J2;
-        Joueur J = listeJoueurs[1];
-        if ("rouge".equals(J.getCouleur())) {
-            for (int i = 0; i < 30; i++) {
-                Jeton JT = new Jeton("rouge");
-                J.AjouterJeton(JT);
-            }
-        } else {
-            for (int i = 0; i < 30; i++) {
-                Jeton JT = new Jeton("jaune");
-                J.AjouterJeton(JT);
-            }
+
+        String cj1 = J1.Couleur;
+        for (int i = 0; i < 30; i++) {
+            Jeton JT = new Jeton(cj1);
+            J1.AjouterJeton(JT);
         }
-        if ("rouge".equals(J.getCouleur())) {
-            for (int i = 0; i < 30; i++) {
-                Jeton JT = new Jeton("rouge");
-                J.AjouterJeton(JT);
-            }
-        } else {
-            for (int i = 0; i < 30; i++) {
-                Jeton JT = new Jeton("jaune");
-                J.AjouterJeton(JT);
-            }
+        String cj2 = J2.Couleur;
+        for (int a = 0; a < 30; a++) {
+            Jeton JT2 = new Jeton(cj2);
+            J2.AjouterJeton(JT2);
         }
+
         int i = 0;
         while (i < 3) {
             int l = (int) (Math.random() * (9 - 3));
@@ -361,7 +529,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             int c = (int) (Math.random() * (8 - 3));
             if (plateau.presenceDesintegrateur(l, c) == false) {
                 if (plateau.presenceTrouNoir(l, c) == false) {
-                    plateau.placerTrouNoir(l, c);
+                    //plateau.placerTrouNoir(l, c);
                     plateau.placerDesintegrateur(l, c);
                     i += 1;
                 }
@@ -374,14 +542,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             if (plateau.presenceDesintegrateur(l, c) == false) {
                 if (plateau.presenceTrouNoir(l, c) == false) {
                     plateau.placerTrouNoir(l, c);
-                    plateau.placerDesintegrateur(l, c);
+                    //plateau.placerDesintegrateur(l, c);
                     i += 1;
                 }
             }
-
         }
+        plateau.afficherGrilleSurConsole();
     }
-    
+
     public void attribuerCouleurAuxJoueurs() {
         int a = (int) (Math.random() * (2));
         if (a == 1) {
@@ -392,7 +560,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             listeJoueurs[1].affecterCouleur("jaune");
         }
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_col_0;
     private javax.swing.JButton btn_col_1;
@@ -415,7 +583,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JScrollPane message;
     private javax.swing.JLabel nbl_j1_couleur;
     private javax.swing.JLabel nbl_j1_desint;
@@ -430,5 +597,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_grille;
     private javax.swing.JPanel panneau_info_joueurs;
     private javax.swing.JPanel panneau_info_partie;
+    private javax.swing.JTextArea textmessage;
     // End of variables declaration//GEN-END:variables
 }

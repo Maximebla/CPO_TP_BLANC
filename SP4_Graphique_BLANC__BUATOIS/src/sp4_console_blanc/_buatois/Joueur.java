@@ -67,6 +67,10 @@ public class Joueur {
         }      
     }
     
+    /** Méthode qui prend le jeton dans la première cellule du tableau reserveJeton et qui l'enlève du tableau  
+     *
+     * @return
+     */
     public Jeton jouerJeton(){
         Jeton J;
         int index=0;

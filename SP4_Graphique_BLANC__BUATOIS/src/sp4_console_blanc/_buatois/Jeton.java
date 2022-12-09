@@ -9,7 +9,7 @@ package sp4_console_blanc._buatois;
  * @author User
  */
 public class Jeton {
-    private String Couleur;
+    String Couleur;
     
     /** donne la couleur a l'objet Jeton avec la variable couleur
      *
@@ -34,7 +34,7 @@ public class Jeton {
     @Override
     public String toString() {
         String Couleur1;
-        if (Couleur == "Jaune"){
+        if (Couleur == "jaune"){
             Couleur1="J";
         }else{
             Couleur1="R";
